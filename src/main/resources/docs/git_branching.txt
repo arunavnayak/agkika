@@ -1,0 +1,105 @@
+arunav@arunav-HP-15-Notebook-PC:~$ cd IdeaProjects/Invoice-mgmt/
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git init
+Initialized empty Git repository in /home/arunav/IdeaProjects/Invoice-mgmt/.git/
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git remote add origin "https://github.com/arunavnayak/invoice-mgmt.git"
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git pull origin master
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/arunavnayak/invoice-mgmt
+ * branch            master     -> FETCH_HEAD
+ * [new branch]      master     -> origin/master
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git status
+On branch master
+nothing to commit, working directory clean
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	data.dat
+	data.dat~
+
+nothing added to commit but untracked files present (use "git add" to track)
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git add data.dat
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   data.dat
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	data.dat~
+
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git commit -m "my first commit"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'arunav@arunav-HP-15-Notebook-PC.(none)')
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git statusOn branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   data.dat
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	data.dat~
+
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git config --global user.name "arunavnayak"
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git commit -m "my first commit"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'arunav@arunav-HP-15-Notebook-PC.(none)')
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git config --global user.email "arunav.nayak@gmail.com"
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git commit -m "my first commit"
+[master 7a0e76e] my first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 data.dat
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git statusOn branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	data.dat~
+
+nothing added to commit but untracked files present (use "git add" to track)
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git branch testbranch
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git checkout testbranch
+Switched to branch 'testbranch'
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git add -A
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git status
+On branch testbranch
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   git_branching.txt
+
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git commit -m "adding git branch creation info"
+[testbranch b11ad01] adding git branch creation info
+ 1 file changed, 87 insertions(+)
+ create mode 100644 git_branching.txt
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ ls
+data.dat  data.dat~  git_branching.txt  git.txt  git.txt~  README.md
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ 
+

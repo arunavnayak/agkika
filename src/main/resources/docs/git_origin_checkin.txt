@@ -1,0 +1,22 @@
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git push origin master
+Username for 'https://github.com': arunavnayak
+Password for 'https://arunavnayak@github.com': 
+Counting objects: 27, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (23/23), done.
+Writing objects: 100% (26/26), 5.74 KiB | 0 bytes/s, done.
+Total 26 (delta 11), reused 0 (delta 0)
+remote: Resolving deltas: 100% (11/11), done.
+To https://github.com/arunavnayak/invoice-mgmt.git
+   7279ea2..d4f467e  master -> master
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git checkout testbranch
+Switched to branch 'testbranch'
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git push origin testbranch
+Username for 'https://github.com': arunavnayak
+Password for 'https://arunavnayak@github.com': 
+Total 0 (delta 0), reused 0 (delta 0)
+To https://github.com/arunavnayak/invoice-mgmt.git
+ * [new branch]      testbranch -> testbranch
+arunav@arunav-HP-15-Notebook-PC:~/IdeaProjects/Invoice-mgmt$ git checkout master
+Switched to branch 'master'
+
