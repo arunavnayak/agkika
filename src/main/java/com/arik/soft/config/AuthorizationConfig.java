@@ -1,0 +1,33 @@
+package com.arik.soft.config;
+
+import com.arik.soft.domain.UserRepository;
+import com.arik.soft.service.JpaBasedUserDetailService;
+import com.arik.soft.service.authorization.AuthorizationService;
+import com.arik.soft.service.authorization.AuthorizationServiceImpl;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+
+import javax.inject.Inject;
+
+@Configuration
+@Import(RepositoryConfig.class)
+public class AuthorizationConfig {
+
+    @Inject
+    private UserRepository userRepository;
+
+    @Bean
+    public AuthorizationService getAuthorizationService() {
+        AuthorizationServiceImpl authorizationService = new AuthorizationServiceImpl();
+        authorizationService.setUserRepository(userRepository);
+        return authorizationService;
+    }
+
+    @Bean
+    public JpaBasedUserDetailService jpaBasedUserDetailService(){
+        return new JpaBasedUserDetailService(userRepository);
+    }
+
+
+}
