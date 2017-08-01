@@ -53,10 +53,10 @@ public class User {
         this.firstName = user.firstName;
         this.lastName = user.lastName;
         this.userName = user.userName;
+        this.password = user.password;
         this.email = user.email;
         this.address = user.address;
         this.phoneNo = user.phoneNo;
-        this.userRoles = user.userRoles;
         this.userRoles = user.userRoles;
         this.userId = user.userId;
     }

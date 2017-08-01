@@ -17,7 +17,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     private InvoiceRepository InvoiceRepository;
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<InvoiceRepresentation> getInvoiceDetails() {
         return StreamSupport
                 .stream(InvoiceRepository.findAll().spliterator(), false)
@@ -34,7 +34,7 @@ public class InvoiceServiceImpl implements InvoiceService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public InvoiceRepresentation getInvoiceById(Long InvoiceId) {
         return new InvoiceRepresentation(InvoiceRepository.findOne(InvoiceId));
     }

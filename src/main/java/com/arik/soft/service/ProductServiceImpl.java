@@ -17,7 +17,7 @@ public class ProductServiceImpl implements ProductService {
     private ProductRepository ProductRepository;
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<ProductRepresentation> getProductDetails() {
         return StreamSupport
                 .stream(ProductRepository.findAll().spliterator(), false)
@@ -34,7 +34,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public ProductRepresentation getProductById(Long ProductId) {
         return new ProductRepresentation(ProductRepository.findOne(ProductId));
     }

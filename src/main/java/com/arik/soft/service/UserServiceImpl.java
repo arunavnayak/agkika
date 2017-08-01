@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<UserRepresentation> getUserDetails() {
         return StreamSupport
                 .stream(userRepository.findAll().spliterator(), false)
@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public UserRepresentation getUserById(Long userId) {
         return new UserRepresentation(userRepository.findOne(userId));
     }
@@ -47,6 +47,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public UserRepresentation getUserByUserName(String userName) {
         return userRepository
                 .findByUserName(userName)

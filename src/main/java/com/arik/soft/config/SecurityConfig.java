@@ -1,6 +1,5 @@
 package com.arik.soft.config;
 
-import com.arik.soft.service.JpaBasedUserDetailService;
 import com.arik.soft.service.authorization.AuthorizationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,18 +11,19 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableWebSecurity
-@Import({RepositoryConfig.class, AuthorizationConfig.class})
 @Configuration
+@Import({RepositoryConfig.class, AuthorizationConfig.class})
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfig.class);
 
     @Autowired
-    private JpaBasedUserDetailService userDetailsService;
+    private UserDetailsService userDetailsService;
 
     @Autowired
     private AuthorizationService authorizationService;
@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     LOGGER.warn("Empty encoded password");
                     return false;
                 }
-                return rawPassword.equals(encodedPassword);
+                return encode(rawPassword).equals(encodedPassword);
             }
         };
     }

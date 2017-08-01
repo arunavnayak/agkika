@@ -4,17 +4,16 @@ import com.arik.soft.domain.UserRepository;
 import com.arik.soft.service.JpaBasedUserDetailService;
 import com.arik.soft.service.authorization.AuthorizationService;
 import com.arik.soft.service.authorization.AuthorizationServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-
-import javax.inject.Inject;
 
 @Configuration
 @Import(RepositoryConfig.class)
 public class AuthorizationConfig {
 
-    @Inject
+    @Autowired
     private UserRepository userRepository;
 
     @Bean
@@ -25,7 +24,7 @@ public class AuthorizationConfig {
     }
 
     @Bean
-    public JpaBasedUserDetailService jpaBasedUserDetailService(){
+    public JpaBasedUserDetailService jpaBasedUserDetailService() {
         return new JpaBasedUserDetailService(userRepository);
     }
 

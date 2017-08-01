@@ -36,7 +36,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public List<CustomerRepresentation> getCustomersByFirstNameOrLastNameOrEmailOrPhoneNumber(
             String fName, String lName, String email, String phoneNumber) {
         List<Customer> customerList =
@@ -55,7 +55,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public CustomerRepresentation getCustomerById(Long customerId) {
         return new CustomerRepresentation(customerRepository.findOne(customerId));
     }

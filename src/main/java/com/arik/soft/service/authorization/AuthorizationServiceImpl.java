@@ -2,6 +2,7 @@ package com.arik.soft.service.authorization;
 
 import com.arik.soft.domain.User;
 import com.arik.soft.domain.UserRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -19,6 +20,7 @@ public class AuthorizationServiceImpl implements AuthorizationService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public boolean login(String userName, String password) {
         Boolean isAuthenticated = false;
 

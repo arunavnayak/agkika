@@ -7,11 +7,10 @@ import com.arik.soft.domain.UserRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import javax.inject.Inject;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -23,10 +22,10 @@ import static org.hamcrest.core.IsNull.notNullValue;
 @Import({RepositoryConfig.class, AuthorizationConfig.class})
 public class AuthorizationServiceImplTest {
 
-    @Inject
+    @Autowired
     private UserRepository userRepository;
 
-    @Inject
+    @Autowired
     private AuthorizationService authorizationService;
 
 

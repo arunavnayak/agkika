@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.inject.Inject;
 import javax.validation.constraints.NotNull;
 
 @RestController
@@ -19,7 +18,7 @@ public class UserResource {
     @Autowired
     private UserService userService;
 
-    @Inject
+    @Autowired
     private AuthorizationService authorizationService;
 
     @RequestMapping(method = RequestMethod.GET)
@@ -37,12 +36,12 @@ public class UserResource {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity getUserDetailById(@PathVariable final Long id){
+    public ResponseEntity getUserDetailById(@PathVariable final Long id) {
         return new ResponseEntity(userService.getUserById(id), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteUserById(@PathVariable final Long id){
+    public ResponseEntity deleteUserById(@PathVariable final Long id) {
         userService.deleteUserById(id);
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
