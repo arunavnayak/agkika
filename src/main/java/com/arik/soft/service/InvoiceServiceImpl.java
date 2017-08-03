@@ -2,6 +2,8 @@ package com.arik.soft.service;
 
 import com.arik.soft.domain.InvoiceRepository;
 import com.arik.soft.service.representation.InvoiceRepresentation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +14,9 @@ import java.util.stream.StreamSupport;
 
 @Service
 public class InvoiceServiceImpl implements InvoiceService {
+
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(InvoiceServiceImpl.class);
 
     @Autowired
     private InvoiceRepository InvoiceRepository;

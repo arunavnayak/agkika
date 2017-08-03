@@ -3,6 +3,8 @@ package com.arik.soft.service;
 import com.arik.soft.domain.Customer;
 import com.arik.soft.domain.CustomerRepository;
 import com.arik.soft.service.representation.CustomerRepresentation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +16,8 @@ import java.util.stream.StreamSupport;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(CustomerServiceImpl.class);
 
     @Autowired
     private CustomerRepository customerRepository;

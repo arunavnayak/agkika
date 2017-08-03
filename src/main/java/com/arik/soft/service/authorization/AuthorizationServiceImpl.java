@@ -2,12 +2,16 @@ package com.arik.soft.service.authorization;
 
 import com.arik.soft.domain.User;
 import com.arik.soft.domain.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class AuthorizationServiceImpl implements AuthorizationService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(AuthorizationServiceImpl.class);
 
     private static final String SALT = "eastuser";
 
