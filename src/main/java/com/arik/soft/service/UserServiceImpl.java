@@ -1,5 +1,6 @@
 package com.arik.soft.service;
 
+import com.arik.soft.domain.User;
 import com.arik.soft.domain.UserRepository;
 import com.arik.soft.service.representation.UserRepresentation;
 import org.slf4j.Logger;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -42,7 +44,9 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional(readOnly = true)
     public UserRepresentation getUserById(Long userId) {
-        return new UserRepresentation(userRepository.findOne(userId));
+        Optional<User> userOptional = Optional.ofNullable(userRepository.findOne(userId));
+        return userOptional.map(UserRepresentation::new)
+                .orElseThrow(() -> new ResourceNotFoundException(String.format("Unable to find user by id %d", userId)));
     }
 
     @Override

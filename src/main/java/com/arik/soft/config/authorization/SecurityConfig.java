@@ -1,5 +1,6 @@
-package com.arik.soft.config;
+package com.arik.soft.config.authorization;
 
+import com.arik.soft.config.persistance.RepositoryConfig;
 import com.arik.soft.service.authorization.AuthorizationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

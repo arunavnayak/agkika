@@ -1,5 +1,6 @@
-package com.arik.soft.config;
+package com.arik.soft.config.authorization;
 
+import com.arik.soft.config.persistance.RepositoryConfig;
 import com.arik.soft.domain.UserRepository;
 import com.arik.soft.service.JpaBasedUserDetailService;
 import com.arik.soft.service.authorization.AuthorizationService;

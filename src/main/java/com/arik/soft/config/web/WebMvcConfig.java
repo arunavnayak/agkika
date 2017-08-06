@@ -1,4 +1,4 @@
-package com.arik.soft.config;
+package com.arik.soft.config.web;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

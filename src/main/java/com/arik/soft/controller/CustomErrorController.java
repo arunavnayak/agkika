@@ -20,8 +20,8 @@ public class CustomErrorController implements ErrorController {
     @Value("${error.path}")
     private static final String PATH = "/error";
 
-    @Value("${debug}")
-    private boolean debug;
+    @Value("${error.trace}")
+    private boolean trace;
 
     @Autowired
     private ErrorAttributes errorAttributes;
@@ -30,7 +30,7 @@ public class CustomErrorController implements ErrorController {
     ErrorJson error(HttpServletRequest request, HttpServletResponse response) {
         // Appropriate HTTP response code (e.g. 404 or 500) is automatically set by Spring.
         // Here we just define response body.
-        return new ErrorJson(response.getStatus(), getErrorAttributes(request, debug));
+        return new ErrorJson(response.getStatus(), getErrorAttributes(request, trace));
     }
 
     @Override

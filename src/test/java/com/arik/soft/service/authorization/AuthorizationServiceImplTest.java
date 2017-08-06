@@ -1,15 +1,17 @@
 package com.arik.soft.service.authorization;
 
-import com.arik.soft.config.AuthorizationConfig;
-import com.arik.soft.config.RepositoryConfig;
+import com.arik.soft.config.authorization.AuthorizationConfig;
+import com.arik.soft.config.persistance.RepositoryConfig;
 import com.arik.soft.domain.User;
 import com.arik.soft.domain.UserRepository;
+import com.arik.soft.infra.Profiles;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -18,8 +20,8 @@ import static org.hamcrest.core.IsNull.notNullValue;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-
 @Import({RepositoryConfig.class, AuthorizationConfig.class})
+@ActiveProfiles(Profiles.TEST)
 public class AuthorizationServiceImplTest {
 
     @Autowired

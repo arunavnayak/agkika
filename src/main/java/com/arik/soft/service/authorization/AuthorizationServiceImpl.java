@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Optional;
 
 public class AuthorizationServiceImpl implements AuthorizationService {
 
@@ -30,9 +31,9 @@ public class AuthorizationServiceImpl implements AuthorizationService {
 
         String hashedPassword = generateHashedPassword(password);
 
-        User user = userRepository.findByUserName(userName).get();
-        if (user != null) {
-            String storedPasswordHash = user.getPassword();
+        Optional<User> optionalUserName = userRepository.findByUserName(userName);
+        if (optionalUserName.isPresent()) {
+            String storedPasswordHash = optionalUserName.get().getPassword();
             if (hashedPassword.equals(storedPasswordHash)) {
                 isAuthenticated = true;
             } else {
