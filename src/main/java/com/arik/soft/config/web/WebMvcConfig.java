@@ -1,39 +1,14 @@
 package com.arik.soft.config.web;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-@Configuration
-@EnableWebMvc
-public class WebMvcConfig extends WebMvcConfigurerAdapter{
+@Controller
+public class WebMvcConfig {
 
-    @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-        configurer.enable();
-    }
-
-    @Bean
-    public InternalResourceViewResolver viewResolver() {
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("WEB-INF/pages/");
-        resolver.setSuffix(".jsp");
-        return resolver;
-    }
-
-    @Bean
-    public WebMvcConfigurerAdapter forwardToIndex() {
-        return new WebMvcConfigurerAdapter() {
-            @Override
-            public void addViewControllers(ViewControllerRegistry registry) {
-                registry.addViewController("/").setViewName("forward:/index.html");
-                /*registry.addViewController("/user").setViewName(
-                        "forward:/user/index.html");*/
-            }
-        };
+    @GetMapping(value = "/invoice")
+    public String invoice() {
+        return "invoice";
     }
 }
