@@ -11,4 +11,9 @@ public class WebMvcConfig {
     public String invoice() {
         return "invoice";
     }
+
+    @GetMapping(value = "/login")
+    public String login() {
+        return "index";
+    }
 }
