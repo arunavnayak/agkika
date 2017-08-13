@@ -15,10 +15,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-@EnableWebSecurity
 @Configuration
+@EnableWebSecurity
 @Import({RepositoryConfig.class, AuthorizationConfig.class})
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfig.class);
@@ -31,13 +31,42 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        /*auth.inMemoryAuthentication()
+        auth.inMemoryAuthentication()
                 .withUser("arunav").password("eastuser").roles("ADMIN", "USER").and()
-                .withUser("aahan").password("aahanuser").roles("USER");*/
-        auth
+                .withUser("aahan").password("aahanuser").roles("USER");
+        /*auth
                 .userDetailsService(userDetailsService)
-                .passwordEncoder(getPasswordEncoder());
+                .passwordEncoder(getPasswordEncoder());*/
 
+    }
+
+    @Override
+    protected void configure(HttpSecurity httpSecurity) throws Exception {
+        /*httpSecurity
+                .authorizeRequests().antMatchers("/api/*").hasRole("ADMIN").and()
+                .authorizeRequests().antMatchers("/view/*").hasRole("USER").and()
+                .authorizeRequests().antMatchers("/console/*").hasRole("ADMIN").and()*/
+        httpSecurity.csrf().disable();
+        httpSecurity.headers().frameOptions().disable();
+        httpSecurity
+                .authorizeRequests()
+                .antMatchers("/css/**").permitAll()
+                .antMatchers("/js/**").permitAll()
+                .antMatchers("/img/**").permitAll()
+                .antMatchers("/view/**").hasAnyRole("ADMIN","USER")
+                .antMatchers("/api/**").hasRole("ADMIN")
+                .antMatchers("/H2/**").hasRole("ADMIN")
+                //.anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .usernameParameter("username")
+                .passwordParameter("password")
+                .defaultSuccessUrl("/view/invoice")
+                .and()
+                .logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login");
     }
 
     private PasswordEncoder getPasswordEncoder() {
@@ -57,21 +86,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 return encode(rawPassword).equals(encodedPassword);
             }
         };
-    }
-
-    @Override
-    protected void configure(HttpSecurity httpSecurity) throws Exception {
-        /*httpSecurity
-                .authorizeRequests().antMatchers("/api/*").hasRole("ADMIN").and()
-                .authorizeRequests().antMatchers("/view/*").hasRole("USER").and()
-                .authorizeRequests().antMatchers("/console/*").hasRole("ADMIN").and()*/
-        httpSecurity.csrf().disable();
-        httpSecurity.headers().frameOptions().disable();
-        httpSecurity
-                .authorizeRequests()
-                .antMatchers("**/view/**").authenticated()
-                .anyRequest().permitAll()
-                .and()
-                .formLogin().loginPage("/login").permitAll();
     }
 }
