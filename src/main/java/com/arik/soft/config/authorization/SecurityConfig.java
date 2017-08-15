@@ -31,12 +31,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
+        /*auth.inMemoryAuthentication()
                 .withUser("arunav").password("eastuser").roles("ADMIN", "USER").and()
-                .withUser("aahan").password("aahanuser").roles("USER");
-        /*auth
+                .withUser("aahan").password("aahanuser").roles("USER");*/
+        auth
                 .userDetailsService(userDetailsService)
-                .passwordEncoder(getPasswordEncoder());*/
+                .passwordEncoder(getPasswordEncoder());
 
     }
 
