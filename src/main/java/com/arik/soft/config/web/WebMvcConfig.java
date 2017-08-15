@@ -11,23 +11,27 @@ public class WebMvcConfig {
 
     @GetMapping(value = "/")
     public String index() {
-        return invoice();
-    }
-
-    @GetMapping(value = "/view/invoice")
-    public String invoice() {
-        return "invoice";
+        return login();
     }
 
     @GetMapping(value = "/login")
     public String login() {
+        if (isUserAuthenticated()) {
+            return invoice();
+        } else {
+            return "login";
+        }
+    }
+
+    private boolean isUserAuthenticated() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
-        if (!(auth instanceof AnonymousAuthenticationToken)) {
+        return !(auth instanceof AnonymousAuthenticationToken);
+    }
 
-            return "invoice";
-        }
-        return "index";
+    @GetMapping(value = "/invoice")
+    public String invoice() {
+        return "invoice";
     }
 
 
