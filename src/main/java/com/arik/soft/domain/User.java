@@ -23,15 +23,15 @@ public class User {
     @Column
     private String lastName;
 
-    @Column
+    @Column(unique = true)
     @NotEmpty
     private String userName;
 
-    @Column
+    @Column(unique = true)
     @NotNull
     private String email;
 
-    @Column
+    @Column(unique = true)
     @NotNull
     private String phoneNo;
 
