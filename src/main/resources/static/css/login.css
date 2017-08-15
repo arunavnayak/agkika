@@ -93,6 +93,14 @@
   font-weight: 300;
   color: #1a1a1a;
 }
+.container .info h2 {
+  margin: 0 0 10px;
+  padding: 0;
+  font-size: 32px;
+  font-weight: 300;
+  color: #1a1a1a;
+  font: bold;
+}
 .container .info span {
   color: #4d4d4d;
   font-size: 12px;
