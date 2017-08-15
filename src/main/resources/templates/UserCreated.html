@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>New user creation</title>
+</head>
+<body>
+<h3>Submitted new user creation request</h3>
+<b>User Id</b> <span th:text="${id}"></span><br/>
+<b>Username</b> <span th:text="${name}"></span><br/>
+<b>Email</b> <span th:text="${email}"></span><br/>
+<a href="/">back</a><br/>
+<i>Note: Once admin authorizes your request, you would be able to use this application. You can additionally expect an email on your registered email address on successfull registration.</i>
+</body>
+</html>

@@ -14,6 +14,10 @@ public class UserRepresentation {
     private String address;
     private String password;
 
+    public UserRepresentation(){
+
+    }
+
     public UserRepresentation(User user) {
         this.userId = user.getUserId();
         this.firstName = user.getFirstName();

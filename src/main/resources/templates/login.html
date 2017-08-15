@@ -16,10 +16,15 @@
     </div>
 </div>
 <div class="form">
-    <form class="register-form" method="POST">
-        <input type="text" placeholder="name"/>
-        <input type="password" placeholder="password"/>
-        <input type="text" placeholder="email address"/>
+    <form class="register-form" action="view/user/register" method="POST">
+        <input type="text" placeholder="first name" name="firstName"/>
+        <input type="text" placeholder="last name" name="lastName"/>
+        <input type="text" placeholder="user name" name="userName"/>
+        <input type="text" placeholder="address" name="address"/>
+        <input type="email" placeholder="email address" name="email"/>
+        <input type="tel" placeholder="phone number" name="phoneNo"/>
+        <input type="password" placeholder="password" name="password"/>
+        <input type="password" placeholder="re-type password"/>
         <button>create</button>
         <p class="message">Already registered? <a href="#">Sign In</a></p>
     </form>

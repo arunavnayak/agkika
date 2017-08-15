@@ -2,6 +2,7 @@ package com.arik.soft.service;
 
 import com.arik.soft.domain.User;
 import com.arik.soft.domain.UserRepository;
+import com.arik.soft.service.authorization.AuthorizationService;
 import com.arik.soft.service.representation.UserRepresentation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private AuthorizationService authorizationService;
+
     @Override
     @Transactional(readOnly = true)
     public List<UserRepresentation> getUserDetails() {
@@ -36,6 +40,9 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public UserRepresentation saveUser(UserRepresentation userData) {
+        final String password = authorizationService.generateHashedPassword(userData.getPassword());
+
+        userData.setPassword(password);
         return new UserRepresentation(
                 userRepository.save(UserRepresentation.getUser(userData))
         );
