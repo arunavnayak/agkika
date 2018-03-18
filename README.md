@@ -9,14 +9,31 @@ This application allows organisation to record purchase orders and when these ar
 * bill generation
 
 ## Technologies used
-* Java
-* Spring Boot
-* Caching
+* Java 8
+* Spring Boot, Data, Cache, MVC, Security
 * Thymeleaf
-* Cloud Foundry configurations
-* Spring Security
-* Spring Data
-* Database: H2(inmemory), PostgreSQL
+* Bootstrap
+* Cloud Foundry
+* Database: H2(inmemory), DB2, PostgreSQL
+
+## Installing and using it
+To help getting started with Agkika, a simple project is available with maven build set-up.
+
+Prerequisite: install maven
+#### Git
+```
+git clone https://github.com/arunavnayak/Agkika.git
+```
+#### Maven
+```
+cd Agkika
+mvn clean package
+```
+* Running application
+```
+java -jar -Dspring.profiles.active=PROD target/agkika.jar
+```
+* It can run on following profiles: DEV|TEST|PROD
 
 
 
