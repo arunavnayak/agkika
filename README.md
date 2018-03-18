@@ -19,7 +19,7 @@ This application allows organisation to record purchase orders and when these ar
 ## Installing and using it
 To help getting started with Agkika, a simple project is available with maven build set-up.
 
-Prerequisite: install maven
+Prerequisite: install maven, Java 8
 #### Git
 ```
 git clone https://github.com/arunavnayak/Agkika.git
@@ -29,11 +29,11 @@ git clone https://github.com/arunavnayak/Agkika.git
 cd Agkika
 mvn clean package
 ```
-* Running application
+#### Run application
 ```
 java -jar -Dspring.profiles.active=PROD target/agkika.jar
 ```
-* It can run on following profiles: DEV|TEST|PROD
+It can run on following profiles: DEV|TEST|PROD
 
 
 
