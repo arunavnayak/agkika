@@ -22,11 +22,11 @@ To help getting started with Agkika, a simple project is available with maven bu
 Prerequisite: install maven, Java 8
 #### Git
 ```
-git clone https://github.com/arunavnayak/Agkika.git
+git clone https://github.com/arunavnayak/agkika.git
 ```
 #### Maven
 ```
-cd Agkika
+cd agkika
 mvn clean package
 ```
 #### Run application
