@@ -1,7 +1,7 @@
 # agkika
 
 ## What is it? 
-Agkika is an enterprise grade inventory and billing manager written Java using Spring. 
+Agkika is an enterprise grade inventory and billing manager written in Java using Spring. 
 This application allows organisation to record purchase orders and when these are fulfilled, record customers orders and when these are dispatched as well as to carry out periodic stock checks to update inventory levels.
 * manages inventory
 * tracks costs
