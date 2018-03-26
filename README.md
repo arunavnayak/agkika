@@ -1,4 +1,5 @@
 # agkika
+[Build Status](https://travis-ci.org/arunavnayak/agkika.svg?branch=master)](https://travis-ci.org/arunavnayak/agkika)
 
 ## What is it? 
 Agkika is an enterprise grade inventory and billing manager written in Java using Spring. 
